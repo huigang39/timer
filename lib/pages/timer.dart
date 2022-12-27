@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 // todo
+// bug 运行计时器时切换页面会崩溃
 // Timer 页面
 class TimerPage extends StatefulWidget {
   const TimerPage({super.key});
@@ -48,7 +49,7 @@ class _TimerPageState extends State<TimerPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  '$_hours:$_minutes:$_seconds',
+                  '${_hours.toString().padLeft(2, '0')}:${_minutes.toString().padLeft(2, '0')}:${_seconds.toString().padLeft(2, '0')}',
                   style: const TextStyle(fontSize: 100),
                 ),
               ],
