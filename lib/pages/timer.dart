@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'dart:async';
 import 'package:flutter/material.dart';
 
@@ -45,12 +46,29 @@ class _TimerPageState extends State<TimerPage> {
       body: Stack(
         children: <Widget>[
           Center(
-            child: Column(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  '${_hours.toString().padLeft(2, '0')}:${_minutes.toString().padLeft(2, '0')}:${_seconds.toString().padLeft(2, '0')}',
-                  style: const TextStyle(fontSize: 100),
+                Text.rich(
+                  TextSpan(text: '${_hours.toString().padLeft(2, '0')}:'),
+                  style: const TextStyle(
+                    fontSize: 80,
+                    fontFeatures: [FontFeature.tabularFigures()],
+                  ),
+                ),
+                Text.rich(
+                  TextSpan(text: '${_minutes.toString().padLeft(2, '0')}:'),
+                  style: const TextStyle(
+                    fontSize: 80,
+                    fontFeatures: [FontFeature.tabularFigures()],
+                  ),
+                ),
+                Text.rich(
+                  TextSpan(text: _seconds.toString().padLeft(2, '0')),
+                  style: const TextStyle(
+                    fontSize: 80,
+                    fontFeatures: [FontFeature.tabularFigures()],
+                  ),
                 ),
               ],
             ),
